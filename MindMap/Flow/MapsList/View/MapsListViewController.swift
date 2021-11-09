@@ -42,6 +42,7 @@ private extension MapsListViewController {
     func configureNavigationController() {
         let addMapButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddNewMapAlert))
         navigationItem.rightBarButtonItem = addMapButton
+        navigationController?.navigationBar.backgroundColor = .white
     }
     
     @objc func showAddNewMapAlert() {

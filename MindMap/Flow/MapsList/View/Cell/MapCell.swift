@@ -1,9 +1,3 @@
-//
-//  MapCell.swift
-//  MindMap
-//
-//  Created by Aleksandr on 09.11.2021.
-//
 
 import UIKit
 

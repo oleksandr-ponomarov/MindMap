@@ -11,6 +11,14 @@
 		1F01F9802739DE90000CB43E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F01F97F2739DE90000CB43E /* Assets.xcassets */; };
 		1F01F9832739DE90000CB43E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F01F9812739DE90000CB43E /* LaunchScreen.storyboard */; };
 		1F01F98C2739DF8F000CB43E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F01F98B2739DF8F000CB43E /* AppCoordinator.swift */; };
+		1F353493273AF3B600460C0E /* MindMapEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F353487273AF3B600460C0E /* MindMapEntity.swift */; };
+		1F353494273AF3B600460C0E /* MindMapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F353489273AF3B600460C0E /* MindMapPresenter.swift */; };
+		1F353495273AF3B600460C0E /* MindMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F35348B273AF3B600460C0E /* MindMapViewController.xib */; };
+		1F353496273AF3B600460C0E /* MindMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F35348C273AF3B600460C0E /* MindMapViewController.swift */; };
+		1F353497273AF3B600460C0E /* MindMapConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F35348E273AF3B600460C0E /* MindMapConfigurator.swift */; };
+		1F353498273AF3B600460C0E /* MindMapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F353490273AF3B600460C0E /* MindMapInteractor.swift */; };
+		1F353499273AF3B600460C0E /* MindMapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F353492273AF3B600460C0E /* MindMapRouter.swift */; };
+		1F35349C273AF6B900460C0E /* IdeaCloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F35349B273AF6B900460C0E /* IdeaCloudView.swift */; };
 		1FAE73632739E15300232E20 /* MapsListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE73572739E15300232E20 /* MapsListEntity.swift */; };
 		1FAE73642739E15300232E20 /* MapsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE73592739E15300232E20 /* MapsListPresenter.swift */; };
 		1FAE73652739E15300232E20 /* MapsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE735B2739E15300232E20 /* MapsListViewController.swift */; };
@@ -29,6 +37,14 @@
 		1F01F9822739DE90000CB43E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F01F9842739DE90000CB43E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F01F98B2739DF8F000CB43E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		1F353487273AF3B600460C0E /* MindMapEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MindMapEntity.swift; sourceTree = "<group>"; };
+		1F353489273AF3B600460C0E /* MindMapPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MindMapPresenter.swift; sourceTree = "<group>"; };
+		1F35348B273AF3B600460C0E /* MindMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MindMapViewController.xib; sourceTree = "<group>"; };
+		1F35348C273AF3B600460C0E /* MindMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MindMapViewController.swift; sourceTree = "<group>"; };
+		1F35348E273AF3B600460C0E /* MindMapConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MindMapConfigurator.swift; sourceTree = "<group>"; };
+		1F353490273AF3B600460C0E /* MindMapInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MindMapInteractor.swift; sourceTree = "<group>"; };
+		1F353492273AF3B600460C0E /* MindMapRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MindMapRouter.swift; sourceTree = "<group>"; };
+		1F35349B273AF6B900460C0E /* IdeaCloudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaCloudView.swift; sourceTree = "<group>"; };
 		1FAE73572739E15300232E20 /* MapsListEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsListEntity.swift; sourceTree = "<group>"; };
 		1FAE73592739E15300232E20 /* MapsListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsListPresenter.swift; sourceTree = "<group>"; };
 		1FAE735B2739E15300232E20 /* MapsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsListViewController.swift; sourceTree = "<group>"; };
@@ -96,10 +112,82 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		1F353485273AF3B600460C0E /* MindMap */ = {
+			isa = PBXGroup;
+			children = (
+				1F35348A273AF3B600460C0E /* View */,
+				1F353488273AF3B600460C0E /* Presenter */,
+				1F35348F273AF3B600460C0E /* Interactor */,
+				1F353491273AF3B600460C0E /* Router */,
+				1F353486273AF3B600460C0E /* Entity */,
+				1F35348D273AF3B600460C0E /* Configurator */,
+			);
+			path = MindMap;
+			sourceTree = "<group>";
+		};
+		1F353486273AF3B600460C0E /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				1F353487273AF3B600460C0E /* MindMapEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		1F353488273AF3B600460C0E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				1F353489273AF3B600460C0E /* MindMapPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		1F35348A273AF3B600460C0E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1F35349A273AF65A00460C0E /* IdeaCloud */,
+				1F35348B273AF3B600460C0E /* MindMapViewController.xib */,
+				1F35348C273AF3B600460C0E /* MindMapViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1F35348D273AF3B600460C0E /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				1F35348E273AF3B600460C0E /* MindMapConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		1F35348F273AF3B600460C0E /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				1F353490273AF3B600460C0E /* MindMapInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		1F353491273AF3B600460C0E /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				1F353492273AF3B600460C0E /* MindMapRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		1F35349A273AF65A00460C0E /* IdeaCloud */ = {
+			isa = PBXGroup;
+			children = (
+				1F35349B273AF6B900460C0E /* IdeaCloudView.swift */,
+			);
+			path = IdeaCloud;
+			sourceTree = "<group>";
+		};
 		1FAE73522739E0F700232E20 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
 				1FAE73552739E15300232E20 /* MapsList */,
+				1F353485273AF3B600460C0E /* MindMap */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -234,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F01F9832739DE90000CB43E /* LaunchScreen.storyboard in Resources */,
+				1F353495273AF3B600460C0E /* MindMapViewController.xib in Resources */,
 				1F01F9802739DE90000CB43E /* Assets.xcassets in Resources */,
 				1FAE736E2739EB8800232E20 /* MapCell.xib in Resources */,
 				1FAE73662739E15300232E20 /* MapsListViewController.xib in Resources */,
@@ -248,14 +337,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FAE73632739E15300232E20 /* MapsListEntity.swift in Sources */,
+				1F353498273AF3B600460C0E /* MindMapInteractor.swift in Sources */,
 				1FAE73672739E15300232E20 /* MapsListConfigurator.swift in Sources */,
+				1F35349C273AF6B900460C0E /* IdeaCloudView.swift in Sources */,
 				1FAE736D2739EB8800232E20 /* MapCell.swift in Sources */,
 				1F01F98C2739DF8F000CB43E /* AppCoordinator.swift in Sources */,
+				1F353494273AF3B600460C0E /* MindMapPresenter.swift in Sources */,
 				1F01F9772739DE8F000CB43E /* AppDelegate.swift in Sources */,
+				1F353497273AF3B600460C0E /* MindMapConfigurator.swift in Sources */,
+				1F353499273AF3B600460C0E /* MindMapRouter.swift in Sources */,
 				1FAE73652739E15300232E20 /* MapsListViewController.swift in Sources */,
 				1FAE73692739E15300232E20 /* MapsListRouter.swift in Sources */,
 				1FAE73682739E15300232E20 /* MapsListInteractor.swift in Sources */,
 				1FAE73642739E15300232E20 /* MapsListPresenter.swift in Sources */,
+				1F353493273AF3B600460C0E /* MindMapEntity.swift in Sources */,
+				1F353496273AF3B600460C0E /* MindMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +498,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.MindMap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aleksandr.MindMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -415,14 +511,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X8T6YP5HLL;
+				DEVELOPMENT_TEAM = UH5E4S62N6;
 				INFOPLIST_FILE = "$(SRCROOT)/MindMap/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.MindMap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aleksandr.MindMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
