@@ -7,36 +7,57 @@ protocol MindMapViewType: AnyObject {
 
 class MindMapViewController: UIViewController {
     
-    @IBOutlet private weak var scrollView: UIScrollView!
-    @IBOutlet private weak var ideasView: UIView!
-    
     var presenter: MindMapPresenterType?
-    private var configurator: MindMapConfiguratorType = MindMapConfigurator()
+    private var configurator: MindMapConfiguratorType?
+    private var scrollView: UIScrollView?
+    private var ideasView: UIView?
+    
+    private let contentSize: CGFloat = 5000
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configurator.configure(viewController: self)
+        configurator?.configure(viewController: self)
         presenter?.viewDidLoad()
         
-        scrollView.isScrollEnabled = false
+        scrollView = UIScrollView(frame: view.bounds)
+        ideasView = UIView(frame: CGRect(x: 0, y: 0, width: contentSize, height: contentSize))
         
-        let ideaCloudView = IdeaCloudView(CGPoint(x: ideasView.frame.midX,
-                                                  y: ideasView.frame.midY),
-                                          ideaText: "Text")
-        ideaCloudView.delegate = self
-        ideasView.addSubview(ideaCloudView)
+        guard let scrollView = scrollView,
+              let ideasView = ideasView else { return }
+        scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        scrollView.delegate = self
+        scrollView.contentSize = CGSize(width: contentSize, height: contentSize)
+       
+        scrollView.minimumZoomScale = 0.5
+        scrollView.maximumZoomScale = 2.0
         
-//        let ideaCloudView = IdeaCloudView(CGPoint(x: 100,
-//                                                  y: 100),
-//                                          ideaText: "Text")
-        
-
+        scrollView.addSubview(ideasView)
+        view.addSubview(scrollView)
     }
     
-    override func viewDidLayoutSubviews() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
+        guard let ideasView = ideasView else { return }
+        
+        let ideaView = IdeaView(CGPoint(x: ideasView.frame.midX,
+                                        y: ideasView.frame.midY),
+                                ideaText: presenter?.mapName ?? "")
+        ideaView.delegate = self
+        ideasView.addSubview(ideaView)
+        
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
+        
+        scrollView?.setContentOffset(CGPoint(x: (contentSize - view.frame.size.width) / 2,
+                                            y: (contentSize - view.frame.size.height) / 2),
+                                    animated: false)
+    }
+    
+    func assignment(configurator: MindMapConfiguratorType) {
+        self.configurator = configurator
     }
 }
 
@@ -46,9 +67,7 @@ extension MindMapViewController: MindMapViewType {
 }
 
 extension MindMapViewController: IdeaCloudViewDelegate {
-    func didDoubleTap(_ ideaCloudView: IdeaCloudView) {
-        print("AP: MindMapViewController didDoubleTap")
-        
+    func didDoubleTap(_ ideaCloudView: IdeaView) {
         let textInput = UIAlertController(title: "Edit idea", message: nil, preferredStyle: .alert)
         textInput.addTextField { (textField) in
             textField.text = ideaCloudView.ideaText
@@ -58,6 +77,13 @@ extension MindMapViewController: IdeaCloudViewDelegate {
             ideaCloudView.setupIdeaText(text: textField.text)
         }))
         self.present(textInput, animated: true, completion: nil)
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+extension MindMapViewController: UIScrollViewDelegate {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return ideasView
     }
 }
 

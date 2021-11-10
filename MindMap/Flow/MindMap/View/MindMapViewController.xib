@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="ipad12_9" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,8 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MindMapViewController">
             <connections>
-                <outlet property="ideasView" destination="1Gd-NT-y8d" id="jTd-ng-4dd"/>
-                <outlet property="scrollView" destination="B5U-Pb-mMN" id="6d4-mG-nbU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,33 +18,8 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5U-Pb-mMN">
-                    <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Gd-NT-y8d">
-                            <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        </view>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="1Gd-NT-y8d" secondAttribute="trailing" id="CPV-5s-GRG"/>
-                        <constraint firstAttribute="bottom" secondItem="1Gd-NT-y8d" secondAttribute="bottom" id="H0p-jR-exf"/>
-                        <constraint firstItem="1Gd-NT-y8d" firstAttribute="leading" secondItem="B5U-Pb-mMN" secondAttribute="leading" id="LBh-g3-bJA"/>
-                        <constraint firstItem="1Gd-NT-y8d" firstAttribute="top" secondItem="B5U-Pb-mMN" secondAttribute="top" id="T6c-lI-x92"/>
-                    </constraints>
-                </scrollView>
-            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <constraints>
-                <constraint firstAttribute="bottom" secondItem="B5U-Pb-mMN" secondAttribute="bottom" id="26z-Nf-M8b"/>
-                <constraint firstAttribute="trailing" secondItem="B5U-Pb-mMN" secondAttribute="trailing" id="O9q-Nm-cdL"/>
-                <constraint firstItem="B5U-Pb-mMN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ba7-iY-Zds"/>
-                <constraint firstItem="1Gd-NT-y8d" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="mY5-Ii-RT5"/>
-                <constraint firstItem="1Gd-NT-y8d" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="oxW-5b-JD2"/>
-                <constraint firstItem="B5U-Pb-mMN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yKA-oU-LKI"/>
-            </constraints>
             <point key="canvasLocation" x="-781.640625" y="-26.354319180087845"/>
         </view>
     </objects>

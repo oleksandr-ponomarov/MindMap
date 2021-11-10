@@ -8,6 +8,7 @@
 import Foundation
 
 protocol MindMapPresenterType {
+    var mapName: String { get }
     func viewDidLoad()
 }
 
@@ -18,6 +19,10 @@ class MindMapPresenter: MindMapPresenterType {
     private(set) var router: MindMapRouterType
     
     // MARK: - Protocol property
+    
+    var mapName: String {
+        return interactor.mapName
+    }
     
     init(view: MindMapViewType,
          interactor: MindMapInteractorType,

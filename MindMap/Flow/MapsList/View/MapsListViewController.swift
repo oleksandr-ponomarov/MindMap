@@ -2,17 +2,15 @@
 import UIKit
 
 protocol MapsListViewType: AnyObject {
-    
+    func updateUI()
 }
 
 class MapsListViewController: UIViewController {
     
-    var presenter: MapsListPresenterType?
-    private var configurator: MapsListConfiguratorType = MapsListConfigurator()
-    
     @IBOutlet private weak var tableView: UITableView!
     
-    var mapsArray: [String] = []
+    var presenter: MapsListPresenterType?
+    private var configurator: MapsListConfiguratorType = MapsListConfigurator()
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -27,7 +25,9 @@ class MapsListViewController: UIViewController {
 
 // MARK: - MapsListViewType
 extension MapsListViewController: MapsListViewType {
-    
+    func updateUI() {
+        tableView.reloadData()
+    }
 }
 
 // MARK: - Private methods
@@ -46,29 +46,20 @@ private extension MapsListViewController {
     }
     
     @objc func showAddNewMapAlert() {
-        let alert = UIAlertController(title: "Hi", message: "Enter name your new map:", preferredStyle: .alert)
-        alert.addTextField { textField in
-            textField.placeholder = "enter map name"
-        }
-        let createAction = UIAlertAction(title: "Create", style: .default) { _ in
-            self.mapsArray.append("New map")
-            self.tableView.reloadData()
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in }
-        alert.addAction(createAction)
-        alert.addAction(cancelAction)
-        self.present(alert, animated: true, completion: nil)
+        presenter?.addNewMapAction()
     }
 }
 
 extension MapsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        mapsArray.count
+        return presenter?.numberOfRowsInSection ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MapCell", for: indexPath) as? MapCell else { return .init() }
-        cell.setupCell(with: "\(mapsArray[indexPath.row])")
+        let cellData = presenter?.getCellData(by: indexPath) ?? ""
+        cell.setupCell(with: cellData)
+        cell.selectionStyle = .none
         return cell
     }
 }
@@ -76,5 +67,7 @@ extension MapsListViewController: UITableViewDataSource {
 extension MapsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("AP: Show map screen by index \(indexPath.row)")
+        
+        presenter?.didTapMapCell(with: indexPath)
     }
 }

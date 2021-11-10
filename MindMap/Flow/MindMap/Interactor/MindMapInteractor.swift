@@ -8,14 +8,22 @@
 import Foundation
 
 protocol MindMapInteractorType {
-
+    var mapName: String { get }
 }
 
 class MindMapInteractor: MindMapInteractorType {
     
+    private let _mapName: String
+    
     // MARK: - Protocol property
   
-    init() {}
+    var mapName: String {
+        return _mapName
+    }
+    
+    init(mapName: String) {
+        self._mapName = mapName
+    }
     
     // MARK: - Protocol methods
 }

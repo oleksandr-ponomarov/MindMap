@@ -13,11 +13,18 @@ protocol MindMapConfiguratorType {
 
 class MindMapConfigurator: MindMapConfiguratorType {
     
+    private let mapName: String
+    
     // MARK: - Protocol property
     
+    init(mapName: String) {
+        self.mapName = mapName
+    }
+    
     // MARK: - Protocol method
+    
     func configure(viewController: MindMapViewController) {
-        let interactor = MindMapInteractor()
+        let interactor = MindMapInteractor(mapName: mapName)
         let router = MindMapRouter(viewController: viewController)
         let presenter = MindMapPresenter(view: viewController, interactor: interactor, router: router)
         viewController.presenter = presenter

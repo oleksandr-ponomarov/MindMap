@@ -2,10 +2,10 @@
 import UIKit
 
 protocol IdeaCloudViewDelegate {
-    func didDoubleTap(_ bubble: IdeaCloudView)
+    func didDoubleTap(_ bubble: IdeaView)
 }
 
-class IdeaCloudView: UIView {
+class IdeaView: UIView {
     
     private var ideaLabel: UILabel = .init()
     private let font: UIFont = .boldSystemFont(ofSize: 30)
@@ -32,7 +32,6 @@ class IdeaCloudView: UIView {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("KA: \(touches.count)")
         guard let touchesCount = event?.touches(for: self.window!)?.count else { return }
         if touchesCount == 2 {
             let trackedTouch = touches.min {
@@ -50,7 +49,7 @@ class IdeaCloudView: UIView {
 }
 
 // MARK: - Private methods
-private extension IdeaCloudView {
+private extension IdeaView {
     func configure() {
         layer.borderWidth = borderWidth
         layer.borderColor = borderColor.cgColor
@@ -74,8 +73,6 @@ private extension IdeaCloudView {
     }
     
     @objc func doubleTapAction() {
-        print("AP: doubleTap")
-        
         delegate?.didDoubleTap(self)
     }
     
