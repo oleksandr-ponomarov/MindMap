@@ -11,6 +11,7 @@
 		1F01F9802739DE90000CB43E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F01F97F2739DE90000CB43E /* Assets.xcassets */; };
 		1F01F9832739DE90000CB43E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F01F9812739DE90000CB43E /* LaunchScreen.storyboard */; };
 		1F01F98C2739DF8F000CB43E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F01F98B2739DF8F000CB43E /* AppCoordinator.swift */; };
+		1F1BB33C273DC8090040EDB2 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1BB33B273DC8090040EDB2 /* LineView.swift */; };
 		1F2C3F87273C6E920002344C /* MindMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2C3F86273C6E920002344C /* MindMapViewController.xib */; };
 		1F353493273AF3B600460C0E /* MindMapEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F353487273AF3B600460C0E /* MindMapEntity.swift */; };
 		1F353494273AF3B600460C0E /* MindMapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F353489273AF3B600460C0E /* MindMapPresenter.swift */; };
@@ -37,6 +38,7 @@
 		1F01F9822739DE90000CB43E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F01F9842739DE90000CB43E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F01F98B2739DF8F000CB43E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		1F1BB33B273DC8090040EDB2 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		1F2C3F86273C6E920002344C /* MindMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MindMapViewController.xib; sourceTree = "<group>"; };
 		1F353487273AF3B600460C0E /* MindMapEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MindMapEntity.swift; sourceTree = "<group>"; };
 		1F353489273AF3B600460C0E /* MindMapPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MindMapPresenter.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				1F35349B273AF6B900460C0E /* IdeaView.swift */,
+				1F1BB33B273DC8090040EDB2 /* LineView.swift */,
 				1F2C3F86273C6E920002344C /* MindMapViewController.xib */,
 				1F35348C273AF3B600460C0E /* MindMapViewController.swift */,
 			);
@@ -343,6 +346,7 @@
 				1FAE73682739E15300232E20 /* MapsListInteractor.swift in Sources */,
 				1FAE73642739E15300232E20 /* MapsListPresenter.swift in Sources */,
 				1F353493273AF3B600460C0E /* MindMapEntity.swift in Sources */,
+				1F1BB33C273DC8090040EDB2 /* LineView.swift in Sources */,
 				1F353496273AF3B600460C0E /* MindMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

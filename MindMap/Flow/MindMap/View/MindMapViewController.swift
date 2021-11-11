@@ -54,6 +54,7 @@ class MindMapViewController: UIViewController {
         scrollView?.setContentOffset(CGPoint(x: (contentSize - view.frame.size.width) / 2,
                                             y: (contentSize - view.frame.size.height) / 2),
                                     animated: false)
+        scrollView?.isScrollEnabled = false
     }
     
     func assignment(configurator: MindMapConfiguratorType) {

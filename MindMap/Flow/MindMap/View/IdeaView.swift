@@ -13,6 +13,7 @@ class IdeaView: UIView {
     private let borderColor: UIColor = .black
     private let height: CGFloat = 100
     private let wight: CGFloat = 200
+    private var secondIdea: IdeaView?
     
     var delegate: IdeaCloudViewDelegate?
     
@@ -20,26 +21,45 @@ class IdeaView: UIView {
         return ideaLabel.text ?? ""
     }
     
-    convenience init(_ point: CGPoint, ideaText: String) {
-        self.init()
-        
-        let frame = getFrameBy(point: point)
-        self.init(frame: frame)
+    init(_ point: CGPoint, ideaText: String) {
+        let frame = CGRect(x: point.x - (wight / 2),
+                           y: point.y - (height / 2),
+                           width: wight,
+                           height: height)
+        super.init(frame: frame)
     
         setupLabel(text: ideaText)
         setupGestures()
         configure()
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touchesCount = event?.touches(for: self.window!)?.count else { return }
+        print("TouchesMoved")
+        
+        guard let touchesCount = event?.touches(for: self.superview!)?.count else { return }
+        let trackedTouch = touches.min { $0.location(in: self.superview).x < $1.location(in: self.superview).x }
+        let topSwipeStartPoint = (trackedTouch?.location(in: superview))!
         if touchesCount == 2 {
-            let trackedTouch = touches.min {
-                $0.location(in: self.window).x < $1.location(in: self.window).x
-            }
-            let topSwipeStartPoint = (trackedTouch?.location(in: window))!
-            // Ignore the other touch that had a larger x-value
             self.center = topSwipeStartPoint
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("AP: touchesEnded")
+        
+        guard let touchesCount = event?.touches(for: self.superview!)?.count else { return }
+        let trackedTouch = touches.min { $0.location(in: self.superview).x < $1.location(in: self.superview).x }
+        let topSwipeStartPoint = (trackedTouch?.location(in: superview))!
+        
+        if touchesCount == 1 && !frame.contains(topSwipeStartPoint) {
+            secondIdea = IdeaView(topSwipeStartPoint, ideaText: "SecondText")
+            superview?.addSubview(secondIdea!)
+            let line = LineView(from: self, to: secondIdea!)
+            superview!.insertSubview(line, at: 0)
         }
     }
     
@@ -74,11 +94,5 @@ private extension IdeaView {
     
     @objc func doubleTapAction() {
         delegate?.didDoubleTap(self)
-    }
-    
-    func getFrameBy(point: CGPoint) -> CGRect {
-        let x = point.x - (wight / 2)
-        let y = point.y - (height / 2)
-        return CGRect(x: x, y: y, width: wight, height: height)
     }
 }
