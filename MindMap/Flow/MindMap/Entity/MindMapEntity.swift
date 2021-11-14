@@ -1,12 +1,19 @@
-//  
-//  MindMapEntity.swift
-//  MindMap
-//
-//  Created by Aleksandr on 09.11.2021.
-//
 
 import Foundation
 
-struct MindMapEntity: Codable {
-    
+// MARK: - MindMapEntity
+struct MindMapEntity {
+    let ideas: Ideas?
+    let lines: Lines?
+    let title: String
+}
+
+// MARK: - Ideas
+struct Ideas {
+    let uuid, center, text: String?
+}
+
+// MARK: - Lines
+struct Lines {
+    let fromUuid, toUuid: String?
 }

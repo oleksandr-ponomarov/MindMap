@@ -1,9 +1,3 @@
-//
-//  CGPoint+Extensions.swift
-//  MindMap
-//
-//  Created by Aleksandr on 14.11.2021.
-//
 
 import UIKit
 

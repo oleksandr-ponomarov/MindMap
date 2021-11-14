@@ -1,16 +1,12 @@
-//  
-//  MindMapPresenter.swift
-//  MindMap
-//
-//  Created by Aleksandr on 09.11.2021.
-//
 
 import Foundation
+import UIKit
 
 protocol MindMapPresenterType {
     var mapName: String { get }
     var mapUuid: String { get }
     func viewDidLoad()
+    func saveIdeas(views: [UIView]?)
 }
 
 class MindMapPresenter: MindMapPresenterType {
@@ -40,5 +36,11 @@ class MindMapPresenter: MindMapPresenterType {
     // MARK: - Protocolol methods
     func viewDidLoad() {
         
+    }
+    
+    func saveIdeas(views: [UIView]?) {
+        guard let views = views else { return }
+        
+        interactor.saveToJson(views: views, uuid: mapUuid, mapName: mapName)
     }
 }

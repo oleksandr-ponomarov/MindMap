@@ -51,7 +51,7 @@ class MindMapViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        saveIdeas()
+        presenter?.saveIdeas(views: ideasView?.subviews)
     }
     
     func assignment(configurator: MindMapConfiguratorType) {
@@ -147,7 +147,7 @@ extension MindMapViewController: IdeaCloudViewDelegate {
     }
     
     func didChange() {
-        saveIdeas()
+        presenter?.saveIdeas(views: ideasView?.subviews)
     }
 }
 
