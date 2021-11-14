@@ -40,7 +40,7 @@ class MapsListPresenter: MapsListPresenterType {
     }
     
     func getCellData(by indexPath: IndexPath) -> String {
-        return interactor.getMap(by: indexPath)
+        return interactor.getMap(by: indexPath).title
     }
     
     func addNewMapAction() {

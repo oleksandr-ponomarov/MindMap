@@ -1,6 +1,7 @@
 
 import Foundation
 
-struct MapsListEntity: Codable {
-    
+struct MapsListEntity {
+    var title: String
+    var uuid: String
 }

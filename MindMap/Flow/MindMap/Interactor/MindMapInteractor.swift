@@ -8,21 +8,21 @@
 import Foundation
 
 protocol MindMapInteractorType {
-    var mapName: String { get }
+    var mapsListEntity: MapsListEntity { get }
 }
 
 class MindMapInteractor: MindMapInteractorType {
     
-    private let _mapName: String
+    private let _mapsListEntity: MapsListEntity
     
     // MARK: - Protocol property
   
-    var mapName: String {
-        return _mapName
+    var mapsListEntity: MapsListEntity {
+        return _mapsListEntity
     }
     
-    init(mapName: String) {
-        self._mapName = mapName
+    init(mapsListEntity: MapsListEntity) {
+        self._mapsListEntity = mapsListEntity
     }
     
     // MARK: - Protocol methods

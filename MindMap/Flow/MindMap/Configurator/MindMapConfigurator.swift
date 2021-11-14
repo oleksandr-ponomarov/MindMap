@@ -13,18 +13,18 @@ protocol MindMapConfiguratorType {
 
 class MindMapConfigurator: MindMapConfiguratorType {
     
-    private let mapName: String
+    private let mapsListEntity: MapsListEntity
     
     // MARK: - Protocol property
     
-    init(mapName: String) {
-        self.mapName = mapName
+    init(with mapsListEntity: MapsListEntity) {
+        self.mapsListEntity = mapsListEntity
     }
     
     // MARK: - Protocol method
     
     func configure(viewController: MindMapViewController) {
-        let interactor = MindMapInteractor(mapName: mapName)
+        let interactor = MindMapInteractor(mapsListEntity: mapsListEntity)
         let router = MindMapRouter(viewController: viewController)
         let presenter = MindMapPresenter(view: viewController, interactor: interactor, router: router)
         viewController.presenter = presenter

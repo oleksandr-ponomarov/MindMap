@@ -2,7 +2,7 @@
 import UIKit
 
 protocol MapsListRouterType {
-    func showMindMapScreen(with map: String)
+    func showMindMapScreen(with map: MapsListEntity)
     func showAddNewMapAlert(completion: @escaping (String) -> Void)
 }
 
@@ -18,9 +18,9 @@ class MapsListRouter: MapsListRouterType {
     
     // MARK: - Protocol methods
     
-    func showMindMapScreen(with map: String) {
+    func showMindMapScreen(with map: MapsListEntity) {
         let mindMapViewController = MindMapViewController()
-        let configurator = MindMapConfigurator(mapName: map)
+        let configurator = MindMapConfigurator(with: map)
         mindMapViewController.assignment(configurator: configurator)
         viewController?.navigationController?.show(mindMapViewController, sender: nil)
     }

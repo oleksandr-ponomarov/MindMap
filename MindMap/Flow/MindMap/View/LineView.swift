@@ -6,6 +6,13 @@ class LineView: UIView {
     private var fromView: IdeaView?
     private var toView: IdeaView?
     
+    var data: [String: String] {
+        var data = [String: String]()
+        data["fromUuid"] = fromView?.uuid
+        data["toUuid"] = toView?.uuid
+        return data
+    }
+    
     init(from: IdeaView, to: IdeaView) {
         super.init(frame: CGRect.zero)
         backgroundColor = UIColor.clear
@@ -26,7 +33,7 @@ class LineView: UIView {
         let controlVector = CGPoint(x: (destination.x - origin.x) * 0.5, y:0)
         path.move(to: origin)
         path.addCurve(to: destination, controlPoint1: origin + controlVector, controlPoint2: destination - controlVector)
-        path.lineWidth = 2.0
+        path.lineWidth = 5.0
         UIColor.black.setStroke()
         path.stroke()
     }
@@ -37,12 +44,4 @@ class LineView: UIView {
         self.frame = fromView.frame.union(toView.frame)
         self.setNeedsDisplay()
     }
-}
-
-func + (left: CGPoint, right: CGPoint) -> CGPoint {
-    return CGPoint(x: left.x + right.x, y: left.y + right.y)
-}
-
-func - (left: CGPoint, right: CGPoint) -> CGPoint {
-    return CGPoint(x: left.x - right.x, y: left.y - right.y)
 }
