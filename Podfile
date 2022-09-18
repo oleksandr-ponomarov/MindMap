@@ -6,9 +6,6 @@ target 'MindMap' do
   use_frameworks!
 
   # Pods for MindMap
-  pod 'RxSwift'
-  pod 'RxCocoa'
-
   pod 'R.swift'
   pod 'SwiftLint'
 end
