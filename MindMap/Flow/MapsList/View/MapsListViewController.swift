@@ -1,4 +1,3 @@
-
 import UIKit
 
 protocol MapsListViewType: AnyObject {
@@ -30,6 +29,28 @@ extension MapsListViewController: MapsListViewType {
     }
 }
 
+// MARK: - UITableViewDataSource
+extension MapsListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter?.numberOfRowsInSection ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MapCell", for: indexPath) as? MapCell else { return .init() }
+        let cellData = presenter?.getCellData(by: indexPath) ?? ""
+        cell.setupCell(with: cellData)
+        cell.selectionStyle = .none
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension MapsListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.didTapMapCell(with: indexPath)
+    }
+}
+
 // MARK: - Private methods
 private extension MapsListViewController {
     func configureUI() {
@@ -47,27 +68,5 @@ private extension MapsListViewController {
     
     @objc func showAddNewMapAlert() {
         presenter?.addNewMapAction()
-    }
-}
-
-extension MapsListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.numberOfRowsInSection ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MapCell", for: indexPath) as? MapCell else { return .init() }
-        let cellData = presenter?.getCellData(by: indexPath) ?? ""
-        cell.setupCell(with: cellData)
-        cell.selectionStyle = .none
-        return cell
-    }
-}
-
-extension MapsListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("AP: Show map screen by index \(indexPath.row)")
-        
-        presenter?.didTapMapCell(with: indexPath)
     }
 }

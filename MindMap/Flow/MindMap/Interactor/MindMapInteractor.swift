@@ -40,7 +40,7 @@ class MindMapInteractor: MindMapInteractorType {
             }
         }
 
-        let personArray: [String : Any] =  ["ideas": ideas,  "lines": lines, "title": mapName]
+        let personArray: [String : Any] =  ["ideas": ideas, "lines": lines, "title": mapName]
 
         let data = try? JSONSerialization.data(withJSONObject: personArray, options: [])
         try? data?.write(to: fileUrl, options: [])

@@ -43,8 +43,8 @@ class MindMapViewController: UIViewController {
         view.layoutIfNeeded()
         
         scrollView?.setContentOffset(CGPoint(x: (contentSize - view.frame.size.width) / 2,
-                                            y: (contentSize - view.frame.size.height) / 2),
-                                    animated: false)
+                                             y: (contentSize - view.frame.size.height) / 2),
+                                     animated: false)
         scrollView?.isScrollEnabled = false
     }
     
@@ -78,8 +78,8 @@ class MindMapViewController: UIViewController {
             for line in lines {
                 let fromUuid = line["fromUuid"]
                 let toUuid = line["toUuid"]
-                if let fromView = getIdeaViewForUuid(uuid: fromUuid!) {
-                    if let toView = getIdeaViewForUuid(uuid: toUuid!) {
+                if let fromView = getIdeaViewFor(uuid: fromUuid!) {
+                    if let toView = getIdeaViewFor(uuid: toUuid!) {
                         let line = LineView(from: fromView, to: toView)
                         ideasView?.insertSubview(line, at: 0)
                         fromView.lines.append(line)
@@ -90,7 +90,7 @@ class MindMapViewController: UIViewController {
         }
     }
     
-    func getIdeaViewForUuid(uuid: String) -> IdeaView? {
+    func getIdeaViewFor(uuid: String) -> IdeaView? {
         guard let ideasViews = ideasView?.subviews else { return nil }
         
         for view in ideasViews {
@@ -119,9 +119,9 @@ class MindMapViewController: UIViewController {
                 lines.append(lineView.data)
             }
         }
-        if ideas.count > 0 {
+        if !ideas.isEmpty {
             UserDefaults.standard.set(ideas, forKey: "ideas")
-            if lines.count > 0 {
+            if !lines.isEmpty {
                 UserDefaults.standard.set(lines, forKey: "lines")
             }
         }
@@ -139,7 +139,7 @@ extension MindMapViewController: IdeaCloudViewDelegate {
         textInput.addTextField { (textField) in
             textField.text = ideaCloudView.ideaText
         }
-        textInput.addAction(UIAlertAction(title: "Save", style: .default, handler: { (action) in
+        textInput.addAction(UIAlertAction(title: "Save", style: .default, handler: { _ in
             guard let textField = textInput.textFields?.first else { return }
             ideaCloudView.setupIdeaText(text: textField.text)
         }))
@@ -153,9 +153,9 @@ extension MindMapViewController: IdeaCloudViewDelegate {
 
 // MARK: - UIScrollViewDelegate
 extension MindMapViewController: UIScrollViewDelegate {
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return ideasView
-    }
+//    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+//        return ideasView
+//    }
 }
 
 // MARK: - Private methods
@@ -167,7 +167,7 @@ private extension MindMapViewController {
         guard let scrollView = scrollView,
               let ideasView = ideasView else { return }
         scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        scrollView.delegate = self
+//        scrollView.delegate = self
         scrollView.contentSize = CGSize(width: contentSize, height: contentSize)
        
         scrollView.minimumZoomScale = 0.5

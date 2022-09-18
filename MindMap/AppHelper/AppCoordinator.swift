@@ -18,7 +18,6 @@ class AppCoordinator {
         
     private func startViewController() -> UINavigationController {
         let mapsListViewController = MapsListViewController()
-//        let mapsListViewController = MindMapViewController()
         let navigationController = UINavigationController(rootViewController: mapsListViewController)
         return navigationController
     }
