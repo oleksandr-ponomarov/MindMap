@@ -5,20 +5,20 @@ protocol MindMapConfiguratorType {
     func configure(viewController: MindMapViewController)
 }
 
-class MindMapConfigurator: MindMapConfiguratorType {
+final class MindMapConfigurator: MindMapConfiguratorType {
     
-    private let mapsListEntity: MapsListEntity
+    private let mapFile: MapFile
     
     // MARK: - Protocol property
     
-    init(with mapsListEntity: MapsListEntity) {
-        self.mapsListEntity = mapsListEntity
+    init(mapFile: MapFile) {
+        self.mapFile = mapFile
     }
     
     // MARK: - Protocol method
     
     func configure(viewController: MindMapViewController) {
-        let interactor = MindMapInteractor(mapsListEntity: mapsListEntity)
+        let interactor = MindMapInteractor(mapFile: mapFile)
         let router = MindMapRouter(viewController: viewController)
         let presenter = MindMapPresenter(view: viewController, interactor: interactor, router: router)
         viewController.presenter = presenter

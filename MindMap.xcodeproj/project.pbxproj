@@ -20,9 +20,11 @@
 		1F353497273AF3B600460C0E /* MindMapConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F35348E273AF3B600460C0E /* MindMapConfigurator.swift */; };
 		1F353498273AF3B600460C0E /* MindMapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F353490273AF3B600460C0E /* MindMapInteractor.swift */; };
 		1F353499273AF3B600460C0E /* MindMapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F353492273AF3B600460C0E /* MindMapRouter.swift */; };
-		1F35349C273AF6B900460C0E /* IdeaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F35349B273AF6B900460C0E /* IdeaView.swift */; };
+		1F35349C273AF6B900460C0E /* NodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F35349B273AF6B900460C0E /* NodeView.swift */; };
+		1F39278528DD054000438BF4 /* MapFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39278428DD054000438BF4 /* MapFile.swift */; };
+		1F4D3E7D28D9108400715348 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4D3E7C28D9108400715348 /* Node.swift */; };
+		1F8016D128DA4FA100ED2BFE /* MapScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8016D028DA4FA100ED2BFE /* MapScrollView.swift */; };
 		1FA093EC27417AA80045A932 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA093EB27417AA80045A932 /* CGPoint+Extensions.swift */; };
-		1FAE73632739E15300232E20 /* MapsListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE73572739E15300232E20 /* MapsListEntity.swift */; };
 		1FAE73642739E15300232E20 /* MapsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE73592739E15300232E20 /* MapsListPresenter.swift */; };
 		1FAE73652739E15300232E20 /* MapsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE735B2739E15300232E20 /* MapsListViewController.swift */; };
 		1FAE73662739E15300232E20 /* MapsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FAE735C2739E15300232E20 /* MapsListViewController.xib */; };
@@ -50,9 +52,11 @@
 		1F35348E273AF3B600460C0E /* MindMapConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MindMapConfigurator.swift; sourceTree = "<group>"; };
 		1F353490273AF3B600460C0E /* MindMapInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MindMapInteractor.swift; sourceTree = "<group>"; };
 		1F353492273AF3B600460C0E /* MindMapRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MindMapRouter.swift; sourceTree = "<group>"; };
-		1F35349B273AF6B900460C0E /* IdeaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaView.swift; sourceTree = "<group>"; };
+		1F35349B273AF6B900460C0E /* NodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeView.swift; sourceTree = "<group>"; };
+		1F39278428DD054000438BF4 /* MapFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFile.swift; sourceTree = "<group>"; };
+		1F4D3E7C28D9108400715348 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		1F8016D028DA4FA100ED2BFE /* MapScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScrollView.swift; sourceTree = "<group>"; };
 		1FA093EB27417AA80045A932 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
-		1FAE73572739E15300232E20 /* MapsListEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsListEntity.swift; sourceTree = "<group>"; };
 		1FAE73592739E15300232E20 /* MapsListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsListPresenter.swift; sourceTree = "<group>"; };
 		1FAE735B2739E15300232E20 /* MapsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsListViewController.swift; sourceTree = "<group>"; };
 		1FAE735C2739E15300232E20 /* MapsListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapsListViewController.xib; sourceTree = "<group>"; };
@@ -100,8 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				1F01F98A2739DF0F000CB43E /* AppHelper */,
-				1FAE73522739E0F700232E20 /* Flow */,
-				1FA093EA27417A8F0045A932 /* Extensions */,
+				1FAE73522739E0F700232E20 /* Source */,
+				1F4D3E7928D90C5D00715348 /* Resources */,
 				1F01F98D2739DFC3000CB43E /* SupportedFiles */,
 			);
 			path = MindMap;
@@ -130,65 +134,44 @@
 		1F353485273AF3B600460C0E /* MindMap */ = {
 			isa = PBXGroup;
 			children = (
-				1F35348A273AF3B600460C0E /* View */,
-				1F353488273AF3B600460C0E /* Presenter */,
-				1F35348F273AF3B600460C0E /* Interactor */,
-				1F353491273AF3B600460C0E /* Router */,
-				1F353486273AF3B600460C0E /* Entity */,
-				1F35348D273AF3B600460C0E /* Configurator */,
+				1F2C3F86273C6E920002344C /* MindMapViewController.xib */,
+				1F35348C273AF3B600460C0E /* MindMapViewController.swift */,
+				1F353489273AF3B600460C0E /* MindMapPresenter.swift */,
+				1F353490273AF3B600460C0E /* MindMapInteractor.swift */,
+				1F353492273AF3B600460C0E /* MindMapRouter.swift */,
+				1F353487273AF3B600460C0E /* MindMapEntity.swift */,
+				1F35348E273AF3B600460C0E /* MindMapConfigurator.swift */,
 			);
 			path = MindMap;
 			sourceTree = "<group>";
 		};
-		1F353486273AF3B600460C0E /* Entity */ = {
+		1F4D3E7928D90C5D00715348 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1F353487273AF3B600460C0E /* MindMapEntity.swift */,
+				1F4D3E7A28D90C7A00715348 /* UI */,
+				1FA093EA27417A8F0045A932 /* Extensions */,
+				1F39278428DD054000438BF4 /* MapFile.swift */,
 			);
-			path = Entity;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		1F353488273AF3B600460C0E /* Presenter */ = {
+		1F4D3E7A28D90C7A00715348 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				1F353489273AF3B600460C0E /* MindMapPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		1F35348A273AF3B600460C0E /* View */ = {
-			isa = PBXGroup;
-			children = (
-				1F35349B273AF6B900460C0E /* IdeaView.swift */,
+				1F4D3E7B28D9107400715348 /* Node */,
 				1F1BB33B273DC8090040EDB2 /* LineView.swift */,
-				1F2C3F86273C6E920002344C /* MindMapViewController.xib */,
-				1F35348C273AF3B600460C0E /* MindMapViewController.swift */,
+				1F8016D028DA4FA100ED2BFE /* MapScrollView.swift */,
 			);
-			path = View;
+			path = UI;
 			sourceTree = "<group>";
 		};
-		1F35348D273AF3B600460C0E /* Configurator */ = {
+		1F4D3E7B28D9107400715348 /* Node */ = {
 			isa = PBXGroup;
 			children = (
-				1F35348E273AF3B600460C0E /* MindMapConfigurator.swift */,
+				1F4D3E7C28D9108400715348 /* Node.swift */,
+				1F35349B273AF6B900460C0E /* NodeView.swift */,
 			);
-			path = Configurator;
-			sourceTree = "<group>";
-		};
-		1F35348F273AF3B600460C0E /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				1F353490273AF3B600460C0E /* MindMapInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		1F353491273AF3B600460C0E /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				1F353492273AF3B600460C0E /* MindMapRouter.swift */,
-			);
-			path = Router;
+			path = Node;
 			sourceTree = "<group>";
 		};
 		1FA093EA27417A8F0045A932 /* Extensions */ = {
@@ -199,76 +182,27 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		1FAE73522739E0F700232E20 /* Flow */ = {
+		1FAE73522739E0F700232E20 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				1FAE73552739E15300232E20 /* MapsList */,
 				1F353485273AF3B600460C0E /* MindMap */,
 			);
-			path = Flow;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		1FAE73552739E15300232E20 /* MapsList */ = {
 			isa = PBXGroup;
 			children = (
-				1FAE735A2739E15300232E20 /* View */,
-				1FAE73582739E15300232E20 /* Presenter */,
-				1FAE735F2739E15300232E20 /* Interactor */,
-				1FAE73612739E15300232E20 /* Router */,
-				1FAE73562739E15300232E20 /* Entity */,
-				1FAE735D2739E15300232E20 /* Configurator */,
-			);
-			path = MapsList;
-			sourceTree = "<group>";
-		};
-		1FAE73562739E15300232E20 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				1FAE73572739E15300232E20 /* MapsListEntity.swift */,
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
-		1FAE73582739E15300232E20 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				1FAE73592739E15300232E20 /* MapsListPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		1FAE735A2739E15300232E20 /* View */ = {
-			isa = PBXGroup;
-			children = (
 				1FAE736A2739EB5800232E20 /* Cell */,
 				1FAE735C2739E15300232E20 /* MapsListViewController.xib */,
 				1FAE735B2739E15300232E20 /* MapsListViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		1FAE735D2739E15300232E20 /* Configurator */ = {
-			isa = PBXGroup;
-			children = (
+				1FAE73592739E15300232E20 /* MapsListPresenter.swift */,
+				1FAE73602739E15300232E20 /* MapsListInteractor.swift */,
+				1FAE73622739E15300232E20 /* MapsListRouter.swift */,
 				1FAE735E2739E15300232E20 /* MapsListConfigurator.swift */,
 			);
-			path = Configurator;
-			sourceTree = "<group>";
-		};
-		1FAE735F2739E15300232E20 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				1FAE73602739E15300232E20 /* MapsListInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		1FAE73612739E15300232E20 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				1FAE73622739E15300232E20 /* MapsListRouter.swift */,
-			);
-			path = Router;
+			path = MapsList;
 			sourceTree = "<group>";
 		};
 		1FAE736A2739EB5800232E20 /* Cell */ = {
@@ -451,10 +385,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FAE73632739E15300232E20 /* MapsListEntity.swift in Sources */,
 				1F353498273AF3B600460C0E /* MindMapInteractor.swift in Sources */,
 				1FAE73672739E15300232E20 /* MapsListConfigurator.swift in Sources */,
-				1F35349C273AF6B900460C0E /* IdeaView.swift in Sources */,
+				1F35349C273AF6B900460C0E /* NodeView.swift in Sources */,
 				1FAE736D2739EB8800232E20 /* MapCell.swift in Sources */,
 				1F01F98C2739DF8F000CB43E /* AppCoordinator.swift in Sources */,
 				1F12968C28724AAC00655FD4 /* R.generated.swift in Sources */,
@@ -462,13 +395,16 @@
 				1F01F9772739DE8F000CB43E /* AppDelegate.swift in Sources */,
 				1F353497273AF3B600460C0E /* MindMapConfigurator.swift in Sources */,
 				1F353499273AF3B600460C0E /* MindMapRouter.swift in Sources */,
+				1F4D3E7D28D9108400715348 /* Node.swift in Sources */,
 				1FAE73652739E15300232E20 /* MapsListViewController.swift in Sources */,
 				1FAE73692739E15300232E20 /* MapsListRouter.swift in Sources */,
 				1FAE73682739E15300232E20 /* MapsListInteractor.swift in Sources */,
 				1FAE73642739E15300232E20 /* MapsListPresenter.swift in Sources */,
+				1F39278528DD054000438BF4 /* MapFile.swift in Sources */,
 				1FA093EC27417AA80045A932 /* CGPoint+Extensions.swift in Sources */,
 				1F353493273AF3B600460C0E /* MindMapEntity.swift in Sources */,
 				1F1BB33C273DC8090040EDB2 /* LineView.swift in Sources */,
+				1F8016D128DA4FA100ED2BFE /* MapScrollView.swift in Sources */,
 				1F353496273AF3B600460C0E /* MindMapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

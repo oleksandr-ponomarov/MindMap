@@ -5,7 +5,7 @@ protocol MapsListConfiguratorType {
     func configure(viewController: MapsListViewController)
 }
 
-class MapsListConfigurator: MapsListConfiguratorType {
+final class MapsListConfigurator: MapsListConfiguratorType {
     
     // MARK: - Protocol property
     

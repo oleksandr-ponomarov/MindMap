@@ -1,19 +1,12 @@
 
 import UIKit
 
-class LineView: UIView {
+final class LineView: UIView {
     
-    private let fromView: IdeaView
-    private let toView: IdeaView
+    private let fromView: NodeView
+    private let toView: NodeView
     
-    var data: [String: String] {
-        var data = [String: String]()
-        data["fromUuid"] = fromView.uuid
-        data["toUuid"] = toView.uuid
-        return data
-    }
-    
-    init(from: IdeaView, to: IdeaView) {
+    init(from: NodeView, to: NodeView) {
         fromView = from
         toView = to
         super.init(frame: CGRect.zero)
@@ -28,14 +21,14 @@ class LineView: UIView {
     
     override func draw(_ rect: CGRect) {
         let path = UIBezierPath()
+        path.lineWidth = 5.0
+        UIColor.black.setStroke()
         let origin = fromView.center - frame.origin
         let destination = toView.center - frame.origin
         
         let controlVector = CGPoint(x: (destination.x - origin.x) * 0.5, y: 0)
         path.move(to: origin)
         path.addCurve(to: destination, controlPoint1: origin + controlVector, controlPoint2: destination - controlVector)
-        path.lineWidth = 5.0
-        UIColor.black.setStroke()
         path.stroke()
     }
     

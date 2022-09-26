@@ -4,20 +4,17 @@ protocol MapsListViewType: AnyObject {
     func updateUI()
 }
 
-class MapsListViewController: UIViewController {
+final class MapsListViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
     var presenter: MapsListPresenterType?
-    private var configurator: MapsListConfiguratorType = MapsListConfigurator()
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configurator.configure(viewController: self)
         presenter?.viewDidLoad()
-        
         configureUI()
     }
 }
@@ -37,9 +34,8 @@ extension MapsListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MapCell", for: indexPath) as? MapCell else { return .init() }
-        let cellData = presenter?.getCellData(by: indexPath) ?? ""
-        cell.setupCell(with: cellData)
-        cell.selectionStyle = .none
+        let title = presenter?.getCellTitle(at: indexPath)
+        cell.setupCell(title: title)
         return cell
     }
 }
@@ -47,7 +43,7 @@ extension MapsListViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension MapsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.didTapMapCell(with: indexPath)
+        presenter?.didTapMapCell(at: indexPath)
     }
 }
 

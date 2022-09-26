@@ -5,7 +5,7 @@ protocol MindMapRouterType {
     
 }
 
-class MindMapRouter: MindMapRouterType {
+final class MindMapRouter: MindMapRouterType {
     
     private weak var viewController: MindMapViewController?
     
