@@ -11,7 +11,12 @@ final class MapsListInteractor: MapsListInteractorType {
     
     // MARK: - Protocol property
     
+    #if targetEnvironment(simulator)
+    var mapFiles: [MapFile] = [MapFile(rootNode: .init(name: "Name1", centerPosition: .init()), contentViewSize: .init()),
+                               MapFile(rootNode: .init(name: "Name2", centerPosition: .init()), contentViewSize: .init())]
+    #else
     var mapFiles: [MapFile] = []
+    #endif
     
     // MARK: - Protocol methods
     

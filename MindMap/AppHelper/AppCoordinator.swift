@@ -15,8 +15,11 @@ class AppCoordinator {
         appDelegate?.window?.rootViewController = startViewController()
         appDelegate?.window?.makeKeyAndVisible()
     }
-        
-    private func startViewController() -> UINavigationController {
+}
+
+// MARK: - Private methods
+private extension AppCoordinator {
+    func startViewController() -> UINavigationController {
         let viewController = MapsListViewController()
         let configurator = MapsListConfigurator()
         configurator.configure(viewController: viewController)

@@ -1,3 +1,4 @@
+
 import UIKit
 
 protocol MapsListViewType: AnyObject {
@@ -33,9 +34,9 @@ extension MapsListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MapCell", for: indexPath) as? MapCell else { return .init() }
+        let cell = tableView.dequeueReusableCell(cellType: MapCell.self, for: indexPath)
         let title = presenter?.getCellTitle(at: indexPath)
-        cell.setupCell(title: title)
+        cell.setup(title: title)
         return cell
     }
 }
@@ -52,7 +53,7 @@ private extension MapsListViewController {
     func configureUI() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "MapCell", bundle: nil), forCellReuseIdentifier: "MapCell")
+        tableView.register(cellType: MapCell.self)
         configureNavigationController()
     }
     
@@ -66,3 +67,22 @@ private extension MapsListViewController {
         presenter?.addNewMapAction()
     }
 }
+
+#if targetEnvironment(simulator)
+import SwiftUI
+
+@available(iOS 15, *)
+struct MapsListViewController_Preview: PreviewProvider {
+    
+    static var previews: some View {
+        Group {
+            UIKitControllerPreview {
+                let viewController = MapsListViewController()
+                let configurator = MapsListConfigurator()
+                configurator.configure(viewController: viewController)
+                return viewController
+            }
+        }
+    }
+}
+#endif

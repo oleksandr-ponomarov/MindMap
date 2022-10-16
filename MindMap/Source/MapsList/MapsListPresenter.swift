@@ -3,6 +3,7 @@ import Foundation
 
 protocol MapsListPresenterType {
     var numberOfRowsInSection: Int { get }
+    
     func viewDidLoad()
     func didTapMapCell(at indexPath: IndexPath)
     func getCellTitle(at indexPath: IndexPath) -> String
