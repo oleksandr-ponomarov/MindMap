@@ -1,5 +1,6 @@
 
 import UIKit
+import SnapKit
 
 protocol NodeViewDelegate: AnyObject {
     func nodePanEnded(_ nodeView: NodeView, location: CGPoint)
@@ -113,7 +114,15 @@ private extension NodeView {
         layer.cornerRadius = 20
         clipsToBounds = true
         
+        setupTextLabel()
+    }
+    
+    func setupTextLabel() {
         addSubview(textLabel)
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        textLabel.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(padding)
+        }
     }
     
     func setupContextMenu() {
@@ -125,10 +134,6 @@ private extension NodeView {
         let labelSize = textLabel.sizeThatFits(CGSize(width: maxWight - padding * 2, height: height - padding * 2))
         let viewWidth = max(minWight, labelSize.width + padding * 2)
         
-        textLabel.frame = CGRect(x: padding,
-                                 y: padding,
-                                 width: viewWidth - padding * 2,
-                                 height: height - padding * 2)
         frame = CGRect(x: center.x - (viewWidth / 2),
                        y: center.y - (height / 2),
                        width: viewWidth,
@@ -192,3 +197,23 @@ private extension NodeView {
         delegate?.nodeDoubleTapped(self)
     }
 }
+
+#if targetEnvironment(simulator)
+import SwiftUI
+
+@available(iOS 15, *)
+struct NodeView_Preview: PreviewProvider {
+    
+    static var previews: some View {
+        Group {
+            UIKitViewPreview {
+                let view = NodeView(position: .zero, node: Node(name: "name", centerPosition: .zero))
+                view.setup(text: "title")
+                return view
+            }
+            .previewLayout(.fixed(width: 600.0, height: 300.0))
+            .padding(100)
+        }
+    }
+}
+#endif
