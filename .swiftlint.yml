@@ -17,13 +17,15 @@ excluded:
 - Carthage
 - Pods
 - SwiftLint/Common/3rdPartyLib
-- Alias/SupportedFiles/R.generated.swift
+- MindMap/SupportedFiles/R.generated.swift
 line_length:
     warning: 150
     error: 200
     ignores_function_declarations: true
     ignores_comments: true
     ignores_urls: true
+type_name:
+    allowed_symbols: "_"
 identifier_name:
   allowed_symbols: "_"
   min_length: 2
@@ -50,6 +52,5 @@ cyclomatic_complexity:
     error: 25
 closure_spacing: warning
 force_unwrapping: warning
-type_name: error
 colon: warning
 reporter: "xcode"
