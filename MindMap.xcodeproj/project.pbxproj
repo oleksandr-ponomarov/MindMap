@@ -27,7 +27,6 @@
 		1FA093EC27417AA80045A932 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA093EB27417AA80045A932 /* CGPoint+Extensions.swift */; };
 		1FAE73642739E15300232E20 /* MapsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE73592739E15300232E20 /* MapsListPresenter.swift */; };
 		1FAE73652739E15300232E20 /* MapsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE735B2739E15300232E20 /* MapsListViewController.swift */; };
-		1FAE73662739E15300232E20 /* MapsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1FAE735C2739E15300232E20 /* MapsListViewController.xib */; };
 		1FAE73672739E15300232E20 /* MapsListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE735E2739E15300232E20 /* MapsListConfigurator.swift */; };
 		1FAE73682739E15300232E20 /* MapsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE73602739E15300232E20 /* MapsListInteractor.swift */; };
 		1FAE73692739E15300232E20 /* MapsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAE73622739E15300232E20 /* MapsListRouter.swift */; };
@@ -61,7 +60,6 @@
 		1FA093EB27417AA80045A932 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		1FAE73592739E15300232E20 /* MapsListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsListPresenter.swift; sourceTree = "<group>"; };
 		1FAE735B2739E15300232E20 /* MapsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsListViewController.swift; sourceTree = "<group>"; };
-		1FAE735C2739E15300232E20 /* MapsListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapsListViewController.xib; sourceTree = "<group>"; };
 		1FAE735E2739E15300232E20 /* MapsListConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsListConfigurator.swift; sourceTree = "<group>"; };
 		1FAE73602739E15300232E20 /* MapsListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsListInteractor.swift; sourceTree = "<group>"; };
 		1FAE73622739E15300232E20 /* MapsListRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsListRouter.swift; sourceTree = "<group>"; };
@@ -201,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				1FAE736A2739EB5800232E20 /* Cell */,
-				1FAE735C2739E15300232E20 /* MapsListViewController.xib */,
 				1FAE735B2739E15300232E20 /* MapsListViewController.swift */,
 				1FAE73592739E15300232E20 /* MapsListPresenter.swift */,
 				1FAE73602739E15300232E20 /* MapsListInteractor.swift */,
@@ -317,7 +314,6 @@
 				1F01F9832739DE90000CB43E /* LaunchScreen.storyboard in Resources */,
 				1F2C3F87273C6E920002344C /* MindMapViewController.xib in Resources */,
 				1F01F9802739DE90000CB43E /* Assets.xcassets in Resources */,
-				1FAE73662739E15300232E20 /* MapsListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

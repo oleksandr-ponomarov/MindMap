@@ -7,8 +7,12 @@ protocol MapsListViewType: AnyObject {
 
 final class MapsListViewController: UIViewController {
     
-    @IBOutlet private weak var tableView: UITableView!
-    
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = .clear
+        return tableView
+    }()
+
     var presenter: MapsListPresenterType?
     
     // MARK: - Life cycle
@@ -51,13 +55,23 @@ extension MapsListViewController: UITableViewDelegate {
 // MARK: - Private methods
 private extension MapsListViewController {
     func configureUI() {
+        view.backgroundColor = .white
+        setupNavigationController()
+        setupTableView()
+    }
+    
+    func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(cellType: MapCell.self)
-        configureNavigationController()
+        
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
     }
     
-    func configureNavigationController() {
+    func setupNavigationController() {
         let addMapButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddNewMapAlert))
         navigationItem.rightBarButtonItem = addMapButton
         navigationController?.navigationBar.backgroundColor = .white

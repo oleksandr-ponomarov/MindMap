@@ -119,7 +119,6 @@ private extension NodeView {
     
     func setupTextLabel() {
         addSubview(textLabel)
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(padding)
         }
