@@ -3,7 +3,7 @@ import UIKit
 
 final class Node: NSObject, Codable {
 
-    var identifire: String = UUID().uuidString
+    let id: String = UUID().uuidString
     var name: String
     var centerPosition: CGPoint
     
@@ -29,14 +29,14 @@ final class Node: NSObject, Codable {
     }
     
     func search(id: String) -> Node? {
-        if let node = children.filter({ $0.identifire == id }).first {
+        if let node = children.filter({ $0.id == id }).first {
             return node
         }
-        if id == self.identifire {
+        if id == self.id {
             return self
         }
         for child in children {
-            if let found = child.search(id: identifire) {
+            if let found = child.search(id: id) {
                 return found
             }
         }
@@ -44,7 +44,7 @@ final class Node: NSObject, Codable {
     }
     
     func remove(node: Node) {
-        guard let nodeToDelete = search(id: node.identifire),
+        guard let nodeToDelete = search(id: node.id),
               let parentNodeToDelete = nodeToDelete.parent else { return }
         
         parentNodeToDelete.children.removeAll { $0 == nodeToDelete }

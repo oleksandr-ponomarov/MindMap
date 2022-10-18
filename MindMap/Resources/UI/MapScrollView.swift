@@ -142,11 +142,11 @@ extension MapScrollView: NodeViewDelegate {
         
         let node = nodeView.node
         var deletedIds: [String] = []
-        node.forEachDepthFirst { deletedIds.append($0.identifire) }
+        node.forEachDepthFirst { deletedIds.append($0.id) }
         rootNode.remove(node: node)
         nodeViews.forEach { nodeView in
             let nodeToDelete = nodeView.node
-            if deletedIds.contains(nodeToDelete.identifire) {
+            if deletedIds.contains(nodeToDelete.id) {
                 nodeView.delete()
             }
         }
