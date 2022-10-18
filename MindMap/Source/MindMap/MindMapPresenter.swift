@@ -3,6 +3,8 @@ import Foundation
 
 protocol MindMapPresenterType {
     var mapFile: MapFile { get }
+    
+    func didSelect(nodeView: NodeView)
 }
 
 final class MindMapPresenter: MindMapPresenterType {
@@ -25,6 +27,9 @@ final class MindMapPresenter: MindMapPresenterType {
         self.router = router
     }
     
-    // MARK: - Protocolol methods
+    // MARK: - Protocol methods
 
+    func didSelect(nodeView: NodeView) {
+        router.showEditAlert(nodeView: nodeView)
+    }
 }

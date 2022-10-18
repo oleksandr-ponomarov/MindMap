@@ -27,18 +27,7 @@ extension MindMapViewController: MindMapViewType {
 // MARK: - MapScrollViewDelegate
 extension MindMapViewController: MapScrollViewDelegate {
     func mapScrollView(_ mapScrollView: MapScrollView, didSelectNodeView nodeView: NodeView) {
-        let textInput = UIAlertController(title: "Edit", message: nil, preferredStyle: .alert)
-        textInput.addTextField { (textField) in
-            textField.text = nodeView.text
-            textField.placeholder = "Enter text"
-        }
-        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
-            guard let textField = textInput.textFields?.first else { return }
-            
-            nodeView.setup(text: textField.text)
-        }
-        textInput.addAction(saveAction)
-        present(textInput, animated: true, completion: nil)
+        presenter?.didSelect(nodeView: nodeView)
     }
 }
 
