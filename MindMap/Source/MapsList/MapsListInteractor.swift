@@ -13,7 +13,8 @@ final class MapsListInteractor: MapsListInteractorType {
     
     #if targetEnvironment(simulator)
     var mapFiles: [MapFile] = [MapFile(rootNode: .init(name: "Name1", centerPosition: .init()), contentViewSize: .init()),
-                               MapFile(rootNode: .init(name: "Name2", centerPosition: .init()), contentViewSize: .init())]
+                               MapFile(rootNode: .init(name: "Name2", centerPosition: CGPoint(x: 1000, y: 1000)),
+                                       contentViewSize: CGSize(width: 2000, height: 2000))]
     #else
     var mapFiles: [MapFile] = []
     #endif
