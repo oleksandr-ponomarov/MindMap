@@ -85,15 +85,6 @@ class MapScrollView: UIScrollView {
         let centerOffsetX = (contentSize.width - frame.size.width) / 2
         let centerOffsetY = (contentSize.height - frame.size.height) / 2
         let centerPoint = CGPoint(x: centerOffsetX, y: centerOffsetY)
-//        let centerPoint = mapFile.rootNode.centerPosition
-        
-        print("OP: centerOffsetX \(centerOffsetX)")
-        print("OP: centerOffsetY \(centerOffsetY)")
-        print("OP: contentSize.width \(contentSize.width)")
-        print("OP: contentSize.height \(contentSize.height)")
-        print("OP: frame.size.width \(frame.size.width)")
-        print("OP: frame.size.height \(frame.size.height)")
-        
         setContentOffset(centerPoint, animated: true)
     }
     
@@ -117,7 +108,6 @@ class MapScrollView: UIScrollView {
         containerView.addSubview(rootNodeView)
         nodeViews.append(rootNodeView)
         rootNode.centerPosition = CGPoint(x: location.x, y: location.y)
-        print("OP: rootNode.centerPosition \(CGPoint(x: location.x, y: location.y))")
         return rootNodeView
     }
 }
