@@ -73,18 +73,12 @@ class MapScrollView: UIScrollView {
     func configureUI(mapFile: MapFile) {
         let viewSize = CGSize(width: mapFile.contentViewSize.width, height: mapFile.contentViewSize.height)
         setup(viewSize: viewSize)
-        
-        var newFrame = containerView.frame
-        newFrame.size.width = mapFile.contentViewSize.width
-        newFrame.size.height = mapFile.contentViewSize.height
-        containerView.frame = newFrame
-        
         self.mapFile = mapFile
         
         rootNode = mapFile.rootNode
         let centerPosition = mapFile.rootNode.centerPosition
-        if let rootV = addRootNode(at: centerPosition) {
-            addChildUI(node: mapFile.rootNode, parentView: rootV)
+        if let parentView = addRootNode(at: centerPosition) {
+            addChildUI(node: mapFile.rootNode, parentView: parentView)
         }
         
         layoutIfNeeded()
